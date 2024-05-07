@@ -1,0 +1,29 @@
+{
+  "name": "tupleit",
+  "version": "1.0.0",
+  "description": "A simple Promise to [error, data] helper.",
+  "keywords": [
+    "tuple",
+    "await",
+    "to",
+    "js"
+  ],
+  "license": "MIT",
+  "author": "Arthur Fiorette <me@arthur.place>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "c8 --reporter lcov --reporter text node --test test/**/*.test.js && tsc --noEmit",
+    "lint": "biome check .",
+    "lint:ci": "biome ci .",
+    "lint:fix": "biome check --apply-unsafe ."
+  },
+  "dependencies": {
+    "@biomejs/biome": "^1.7.3",
+    "c8": "^9.1.0",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.10"
+  }
+}
