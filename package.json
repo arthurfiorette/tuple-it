@@ -25,8 +25,8 @@
     "test": "c8 --reporter lcov --reporter text node --test test/**/*.test.js && tsc --noEmit"
   },
   "devDependencies": {
-    "@types/node": "^20.12.10",
     "@biomejs/biome": "^1.7.3",
+    "@types/node": "^20.12.10",
     "c8": "^9.1.0",
     "typescript": "^5.4.5"
   },
