@@ -1,3 +1,5 @@
+const { TupleItError } = require('./index.js')
+
 function tupleResolve(value) {
   return [null, value]
 }

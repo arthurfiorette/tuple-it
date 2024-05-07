@@ -1,6 +1,6 @@
 const { describe, it } = require('node:test')
 const assert = require('node:assert')
-const { TupleItError, tuple } = require('../index')
+const { tuple, TupleItError } = require('../index')
 
 describe('Exported functions', async () => {
   it('should return a value when resolved', async () => {
