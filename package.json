@@ -1,25 +1,27 @@
 {
-	"name": "tupleit",
-	"version": "1.0.0",
-	"description": "A simple Promise to [error, data] helper.",
-	"keywords": ["tuple", "await", "to", "js"],
-	"license": "MIT",
-	"author": "Arthur Fiorette <me@arthur.place>",
-	"type": "commonjs",
-	"main": "index.js",
-	"scripts": {
-		"format": "biome format --write .",
-		"lint": "biome check .",
-		"lint:ci": "biome ci .",
-		"lint:fix": "biome check --apply-unsafe .",
-		"test": "c8 --reporter lcov --reporter text node --test test/**/*.test.js && tsc --noEmit"
-	},
-	"dependencies": {
-		"@biomejs/biome": "^1.7.3",
-		"c8": "^9.1.0",
-		"typescript": "^5.4.5"
-	},
-	"devDependencies": {
-		"@types/node": "^20.12.10"
-	}
+  "name": "tupleit",
+  "version": "1.0.0",
+  "description": "A simple Promise to [error, data] helper.",
+  "keywords": ["tuple", "await", "to", "js"],
+  "license": "MIT",
+  "author": "Arthur Fiorette <me@arthur.place>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "format": "biome format --write .",
+    "lint": "biome check .",
+    "lint:ci": "biome ci .",
+    "lint:fix": "biome check --apply-unsafe .",
+    "test": "c8 --reporter lcov --reporter text node --test test/**/*.test.js && tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.10",
+    "@biomejs/biome": "^1.7.3",
+    "c8": "^9.1.0",
+    "typescript": "^5.4.5"
+  },
+  "packageManager": "pnpm@9.0.1",
+  "engines": {
+    "node": ">=14"
+  }
 }
