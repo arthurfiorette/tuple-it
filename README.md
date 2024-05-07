@@ -1,3 +1,14 @@
+<div align="center">
+  <a title="MIT license" target="_blank" href="https://github.com/arthurfiorette/tupleit/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/arthurfiorette/tupleit"></a>
+  <a title="Codecov" target="_blank" href="https://app.codecov.io/gh/arthurfiorette/tupleit"><img alt="Codecov" src="https://img.shields.io/codecov/c/github/arthurfiorette/tupleit?token=ML0KGCU0VM"></a>
+  <a title="NPM Package" target="_blank" href="https://www.npmjs.com/package/tupleit"><img alt="Downloads" src="https://img.shields.io/npm/dw/tupleit?style=flat"></a>
+  <a title="Install size" target="_blank" href="https://packagephobia.com/result?p=tupleit"><img alt="Bundlephobia" src="https://packagephobia.com/badge?p=tupleit"></a>
+  <a title="Last Commit" target="_blank" href="https://github.com/arthurfiorette/tupleit/commits/master"><img alt="Last commit" src="https://img.shields.io/github/last-commit/arthurfiorette/tupleit"></a>
+  <a href="https://github.com/arthurfiorette/tupleit/stargazers"><img src="https://img.shields.io/github/stars/arthurfiorette/tupleit?logo=github&label=Stars" alt="Stars"></a>
+</div>
+
+<br />
+
 <h1 align="center">
   Tuple it!
 </h1>
