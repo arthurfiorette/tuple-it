@@ -31,7 +31,11 @@
 
 ## Introduction
 
-**TupleIt** is a handy utility designed to simplify error handling with `async`/`await` operations in JavaScript. It wraps the `await` statement in a `[error, data]` tuple, allowing you to easily discern whether a promise was rejected or resolved without resorting to nested `try`/`catch` blocks. This not only enhances code readability but also mitigates one of the most common mistakes in JavaScript development - mishandling promise rejections.
+**TupleIt** is a handy utility designed to simplify error handling with `async`/`await` operations in JavaScript.
+
+It wraps the `await` statement in a `[error, data]` tuple, allowing you to easily discern whether a promise was rejected or resolved without resorting to nested `try`/`catch` blocks.
+
+This not only enhances code readability but also mitigates one of the most common mistakes in JavaScript development - mishandling promise rejections.
 
 <br />
 
