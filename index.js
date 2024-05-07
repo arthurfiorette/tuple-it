@@ -1,18 +1,21 @@
-// uses async/await instead of then here because it might not be a promise.
 async function tuple(maybePromise) {
   try {
+    // await because then is not present on non-Promise objects
     return [null, await maybePromise]
   } catch (error) {
-    // Avoids the need to check if error !== undefined in favor of a simpler if (error)
-    if (!(error instanceof Error)) {
-      return [new TupleItError(error)]
+    // Wrapping into TupleItError avoids the need to check
+    // `if (error !== undefined)` in favor of a simpler `if (error)`
+    if (error instanceof Error) {
+      return [error]
     }
 
-    return [error]
+    return [new TupleItError(error)]
   }
 }
 
 class TupleItError extends Error {
+  error
+
   constructor(error) {
     super('Promise rejected with a non instance of Error')
     this.error = error

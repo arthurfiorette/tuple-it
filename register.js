@@ -5,17 +5,17 @@ function tupleResolve(value) {
 }
 
 function tupleReject(error) {
-  if (!(error instanceof Error)) {
-    return [new TupleItError(error)]
+  if (error instanceof Error) {
+    return [error]
   }
 
-  return [error]
+  return [new TupleItError(error)]
 }
 
 Object.defineProperty(Promise.prototype, 'tuple', {
   // Prevents the property from being listed by Object.getOwnPropertyNames
   enumerable: false,
-  value() {
+  value: function tuple() {
     return this.then(tupleResolve, tupleReject)
   }
 })
