@@ -2,7 +2,16 @@
   "name": "tupleit",
   "version": "1.0.0",
   "description": "A simple Promise to [error, data] helper.",
-  "keywords": ["tuple", "await", "to", "js"],
+  "keywords": [
+    "tuple",
+    "it",
+    "await",
+    "to",
+    "js",
+    "typescript",
+    "promise",
+    "async"
+  ],
   "license": "MIT",
   "author": "Arthur Fiorette <me@arthur.place>",
   "type": "commonjs",

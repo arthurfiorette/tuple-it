@@ -1,9 +1,9 @@
-// uses async/await instead of then here because promise might not be a promise.
+// uses async/await instead of then here because it might not be a promise.
 async function tuple(maybePromise) {
   try {
     return [null, await maybePromise]
   } catch (error) {
-    // Wraps error into a TupleItError if it's not an instance of Error
+    // Avoids the need to check if error !== undefined in favor of a simpler if (error)
     if (!(error instanceof Error)) {
       return [new TupleItError(error)]
     }
