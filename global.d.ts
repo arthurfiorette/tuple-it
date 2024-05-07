@@ -1,4 +1,4 @@
-import type { TupleResult } from './index.d.ts';
+import type { TupleResult } from './index.d.ts'
 
 declare global {
   interface Promise<T> {
@@ -14,6 +14,6 @@ declare global {
      * const [error, result] = await Promise.race(promises).tuple();
      * ```
      */
-    tuple(this: this): Promise<TupleResult<T>>;
+    tuple(this: this): Promise<TupleResult<T>>
   }
 }

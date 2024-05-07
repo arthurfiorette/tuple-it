@@ -4,7 +4,7 @@
  * If the promise is rejected, the tuple will contain an Error object. If the promise is resolved, the tuple will
  * contain null as the first element and the result as the second element.
  */
-export type TupleResult<T> = [Error] | [null, T];
+export type TupleResult<T> = [Error] | [null, T]
 
 /**
  * Returns a promise that resolves to a tuple containing the result of the promise.
@@ -15,7 +15,7 @@ export type TupleResult<T> = [Error] | [null, T];
  * const [error, result] = await tuple(promise);
  * ```
  */
-export declare function tuple<T>(promise: Promise<T>): Promise<TupleResult<T>>;
+export declare function tuple<T>(promise: Promise<T>): Promise<TupleResult<T>>
 
 /**
  * Returns a promise that resolves to a tuple containing the result of the promise.
@@ -26,7 +26,9 @@ export declare function tuple<T>(promise: Promise<T>): Promise<TupleResult<T>>;
  * const [error, result] = await tuple(promise);
  * ```
  */
-export declare function tuple<T>(promise: PromiseLike<T>): PromiseLike<TupleResult<T>>;
+export declare function tuple<T>(
+  promise: PromiseLike<T>
+): PromiseLike<TupleResult<T>>
 
 /**
  * Simply helper when functions may not return a promise.
@@ -40,20 +42,20 @@ export declare function tuple<T>(promise: PromiseLike<T>): PromiseLike<TupleResu
  * const [error, result] = await tuple(myAsyncFn());
  * ```
  */
-export declare function tuple<T>(notPromise: T): TupleResult<T>;
+export declare function tuple<T>(notPromise: T): TupleResult<T>
 
 /**
  * Transforms the promise into a tuple containing the result of the promise.
  *
  * Simple type alias for {@linkcode tuple}
  */
-export declare const t: typeof tuple;
+export declare const t: typeof tuple
 
 /** Error thrown when a rejected promise is not instance of Error. */
 export declare class TupleItError<E = unknown> extends Error {
   /** The error that caused the promise to be rejected. */
-  error: E;
+  error: E
 
   /** Creates a new instance of TupleItError. */
-  constructor(error: E);
+  constructor(error: E)
 }
