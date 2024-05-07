@@ -25,12 +25,7 @@
   "author": "Arthur Fiorette <me@arthur.place>",
   "type": "commonjs",
   "main": "index.js",
-  "files": [
-    "index.js",
-    "index.d.ts",
-    "register.d.ts",
-    "register.js"
-  ],
+  "files": ["index.js", "index.d.ts", "register.d.ts", "register.js"],
   "scripts": {
     "format": "biome format --write .",
     "lint": "biome check .",

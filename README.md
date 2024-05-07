@@ -123,6 +123,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Credits
 
-**TupleIt** draws heavy inspiration from [`await-to-js`](https://www.npmjs.com/package/await-to-js).
+**TupleIt** draws heavy inspiration from [`await-to-js`](https://github.com/scopsy/await-to-js).
 
 <br />
