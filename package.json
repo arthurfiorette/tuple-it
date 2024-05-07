@@ -1,6 +1,6 @@
 {
   "name": "tuple-it",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple Promise to [error, data] catcher.",
   "keywords": [
     "tuple",
@@ -23,8 +23,10 @@
   },
   "license": "MIT",
   "author": "Arthur Fiorette <me@arthur.place>",
+  "sideEffects": ["register.js"],
   "type": "commonjs",
   "main": "index.js",
+  "types": "index.d.ts",
   "files": ["index.js", "index.d.ts", "register.d.ts", "register.js"],
   "scripts": {
     "format": "biome format --write .",
