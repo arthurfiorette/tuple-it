@@ -9,6 +9,12 @@
 </div>
 
 <br />
+<br />
+
+<img align="center" src="./assets/cover.png" />
+
+<br />
+<br />
 
 <h1 align="center">
   Tuple it!
@@ -18,6 +24,7 @@
   A simple <code>Promise</code> to <code>[error, data]</code> catcher.
 </h3>
 
+<br />
 <br />
 
 - [Introduction](#introduction)
