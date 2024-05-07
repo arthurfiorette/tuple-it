@@ -1,5 +1,6 @@
 <div align="center">
   <a title="MIT license" target="_blank" href="https://github.com/arthurfiorette/tuple-it/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/arthurfiorette/tuple-it"></a>
+  <a title="Bundle size" target="_blank" href="https://bundlephobia.com/package/tuple-it"><img alt="Bundlephobia" src="https://img.shields.io/bundlephobia/minzip/tuple-it/latest"></a>
   <a title="Codecov" target="_blank" href="https://app.codecov.io/gh/arthurfiorette/tuple-it"><img alt="Codecov" src="https://img.shields.io/codecov/c/github/arthurfiorette/tuple-it?token=ML0KGCU0VM"></a>
   <a title="NPM Package" target="_blank" href="https://www.npmjs.com/package/tuple-it"><img alt="Downloads" src="https://img.shields.io/npm/dw/tuple-it?style=flat"></a>
   <a title="Install size" target="_blank" href="https://packagephobia.com/result?p=tuple-it"><img alt="Bundlephobia" src="https://packagephobia.com/badge?p=tuple-it"></a>
@@ -24,6 +25,7 @@
 - [Avoiding Global Scope Pollution](#avoiding-global-scope-pollution)
 - [The `TupleItError` Class](#the-tupleiterror-class)
 - [Promisable Objects](#promisable-objects)
+- [Typescript Support](#typescript-support)
 - [License](#license)
 - [Credits](#credits)
 
@@ -47,7 +49,7 @@ This not only enhances code readability but also mitigates one of the most commo
 **TupleIt** provides an import `tuple-it/register` to extend the `Promise` prototype:
 
 ```typescript
-import "tuple-it/register"
+import 'tuple-it/register'
 ```
 
 Now, you can use the `.tuple()` method on any `Promise` object:
@@ -57,11 +59,11 @@ async function work(promise: Promise<WorkData>) {
   const [error, data] = await promise.tuple()
 
   if (error) {
-    console.log("Operation failed!")
+    console.log('Operation failed!')
     return false
   }
 
-  console.log("Operation succeeded!")
+  console.log('Operation succeeded!')
   return true
 }
 ```
@@ -73,7 +75,7 @@ async function work(promise: Promise<WorkData>) {
 If you're developing a library, it's advised not to pollute the global scope. Instead, you can import the `t` function directly (an alias for `tuple`):
 
 ```typescript
-import { t } from "tuple-it"
+import { t } from 'tuple-it'
 
 const [error, data] = await t(someAsyncFunction())
 ```
@@ -85,10 +87,10 @@ const [error, data] = await t(someAsyncFunction())
 Occasionally, promises might reject with non-error objects, which is a poor practice but still happens. **TupleIt** will wrap any non-`Error` object into a `TupleItError` object if it's not an instance of `Error`:
 
 ```typescript
-import { TupleItError } from "tuple-it"
+import { TupleItError } from 'tuple-it'
 
 async function someAsyncFunction() {
-  throw "Please avoid throwing strings!"
+  throw 'Please avoid throwing strings!'
 }
 
 const [error, data] = await someAsyncFunction().tuple()
@@ -105,19 +107,41 @@ if (error instanceof TupleItError) {
 In some cases, functions may return either values or promises for performance optimization. **TupleIt** handles this scenario seamlessly:
 
 ```typescript
-import { t } from "tuple-it"
+import { t } from 'tuple-it'
 
 function someFunction() {
   if (Math.random() > 0.5) {
-    return "Hello, World!"
+    return 'Hello, World!'
   } else {
-    return Promise.resolve("Hello, World!")
+    return Promise.resolve('Hello, World!')
   }
 }
 
 // Works the same way!
 const [error, data] = await t(someFunction())
 ```
+
+<br />
+
+## Typescript Support
+
+Typescript is fully supported:
+
+```ts
+import 'tuple-it/register'
+import { t } from 'tuple-it'
+
+// Custom error type (Defaults to Error)
+const [customError, data] = await promise.then<CustomError>()
+
+// Custom data type
+const [error, customData] = await t<CustomData>(promise)
+
+// Custom data and error types
+const [customError, customData] = await t<CustomError, CustomData>(promise)
+```
+
+<br />
 
 ## License
 
