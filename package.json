@@ -1,5 +1,5 @@
 {
-  "name": "tupleit",
+  "name": "tuple-it",
   "version": "1.0.0",
   "description": "A simple Promise to [error, data] catcher.",
   "keywords": [
@@ -13,11 +13,24 @@
     "promise",
     "async"
   ],
+  "homepage": "https://github.com/arthurfiorette/tuple-it#readme",
+  "bugs": {
+    "url": "https://github.com/arthurfiorette/tuple-it/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurfiorette/tuple-it.git"
+  },
   "license": "MIT",
   "author": "Arthur Fiorette <me@arthur.place>",
   "type": "commonjs",
   "main": "index.js",
-  "files": ["index.js", "index.d.ts", "register.d.ts", "register.js"],
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "register.d.ts",
+    "register.js"
+  ],
   "scripts": {
     "format": "biome format --write .",
     "lint": "biome check .",
