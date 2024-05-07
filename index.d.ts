@@ -12,18 +12,18 @@ export type TupleResult<T> = [Error] | [null, T]
  * @example
  *
  * ```ts
- * const [error, result] = await tuple(promise);
+ * const [error, result] = await t(promise);
  * ```
  */
 export declare function tuple<T>(promise: Promise<T>): Promise<TupleResult<T>>
 
 /**
- * Returns a promise that resolves to a tuple containing the result of the promise.
+ * Returns a promise that resolves to a t containing the result of the promise.
  *
  * @example
  *
  * ```ts
- * const [error, result] = await tuple(promise);
+ * const [error, result] = await t(promise);
  * ```
  */
 export declare function tuple<T>(
@@ -39,7 +39,7 @@ export declare function tuple<T>(
  * declare function myAsyncFn(): Promise<number> | number;
  *
  * // works even if the result is not a promise
- * const [error, result] = await tuple(myAsyncFn());
+ * const [error, result] = await t(myAsyncFn());
  * ```
  */
 export declare function tuple<T>(notPromise: T | PromiseLike<T>): TupleResult<T>
