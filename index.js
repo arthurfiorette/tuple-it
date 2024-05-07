@@ -1,3 +1,4 @@
+/** @param {unknown} maybePromise */
 async function tuple(maybePromise) {
   try {
     // await because then is not present on non-Promise objects
