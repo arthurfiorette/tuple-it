@@ -14,6 +14,6 @@ declare global {
      * const [error, result] = await Promise.race(promises).tuple();
      * ```
      */
-    tuple(this: this): Promise<TupleResult<T>>
+    tuple<E = Error>(this: this): Promise<TupleResult<T, E>>
   }
 }
