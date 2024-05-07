@@ -40,5 +40,5 @@
     "skipLibCheck": true,
     "preserveWatchOutput": true
   },
-  "include": ["**/*.js", "**/*.d.ts", "test/global.test.ts"]
+  "include": ["**/*.js", "**/*.d.ts" ]
 }

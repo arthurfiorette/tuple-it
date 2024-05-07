@@ -1,4 +1,4 @@
-import type { TupleResult } from './index.d.ts'
+import type { TupleResult } from './index'
 
 declare global {
   interface Promise<T> {

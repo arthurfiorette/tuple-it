@@ -42,7 +42,7 @@ export declare function tuple<T>(
  * const [error, result] = await tuple(myAsyncFn());
  * ```
  */
-export declare function tuple<T>(notPromise: T): TupleResult<T>
+export declare function tuple<T>(notPromise: T | PromiseLike<T>): TupleResult<T>
 
 /**
  * Transforms the promise into a tuple containing the result of the promise.

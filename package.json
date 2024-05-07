@@ -1,7 +1,7 @@
 {
   "name": "tupleit",
   "version": "1.0.0",
-  "description": "A simple Promise to [error, data] helper.",
+  "description": "A simple Promise to [error, data] catcher.",
   "keywords": [
     "tuple",
     "it",
@@ -20,8 +20,8 @@
   "files": [
     "index.js",
     "index.d.ts",
-    "global.d.ts",
-    "global.js"
+    "register.d.ts",
+    "register.js"
   ],
   "scripts": {
     "format": "biome format --write .",
