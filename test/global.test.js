@@ -32,6 +32,7 @@ describe('Global prototype', async () => {
     const [err, data] = await promise.tuple()
 
     assert.strictEqual(err instanceof TupleItError, true)
+    //@ts-expect-error - this is a test
     assert.strictEqual(err.error, testErr)
     assert.strictEqual(data, undefined)
   })

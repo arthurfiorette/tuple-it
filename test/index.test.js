@@ -30,6 +30,7 @@ describe('Exported functions', async () => {
     const [err, data] = await tuple(promise)
 
     assert.strictEqual(err instanceof TupleItError, true)
+    //@ts-expect-error - this is a test
     assert.strictEqual(err.error, testErr)
     assert.strictEqual(data, undefined)
   })

@@ -9,6 +9,8 @@
     "declaration": true,
     "outDir": "dist",
     "declarationMap": true,
+    "allowJs": true,
+    "checkJs": true,
     "sourceMap": true,
     "importHelpers": true,
     "emitBOM": true,
@@ -37,8 +39,9 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "skipDefaultLibCheck": true,
-    "skipLibCheck": true,
+    "skipLibCheck": false,
     "preserveWatchOutput": true
   },
-  "include": ["**/*.js", "**/*.d.ts"]
+  "include": ["**/*.js", "**/*.d.ts"],
+  "exclude": ["node_modules", "dist", "coverage"]
 }
