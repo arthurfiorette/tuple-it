@@ -43,22 +43,22 @@
 **TupleIt** provides an import `tuple-it/register` to extend the `Promise` prototype:
 
 ```typescript
-import 'tuple-it/register';
+import "tuple-it/register"
 ```
 
 Now, you can use the `.tuple()` method on any `Promise` object:
 
 ```typescript
 async function work(promise: Promise<WorkData>) {
-  const [error, data] = await promise.tuple();
+  const [error, data] = await promise.tuple()
 
   if (error) {
-    console.log('Operation failed!');
-    return false;
+    console.log("Operation failed!")
+    return false
   }
 
-  console.log('Operation succeeded!');
-  return true;
+  console.log("Operation succeeded!")
+  return true
 }
 ```
 
@@ -69,9 +69,9 @@ async function work(promise: Promise<WorkData>) {
 If you're developing a library, it's advised not to pollute the global scope. Instead, you can import the `t` function directly (an alias for `tuple`):
 
 ```typescript
-import { t } from 'tuple-it';
+import { t } from "tuple-it"
 
-const [error, data] = await t(someAsyncFunction());
+const [error, data] = await t(someAsyncFunction())
 ```
 
 <br />
@@ -81,16 +81,16 @@ const [error, data] = await t(someAsyncFunction());
 Occasionally, promises might reject with non-error objects, which is a poor practice but still happens. **TupleIt** will wrap any non-`Error` object into a `TupleItError` object if it's not an instance of `Error`:
 
 ```typescript
-import { TupleItError } from 'tuple-it';
+import { TupleItError } from "tuple-it"
 
 async function someAsyncFunction() {
-  throw 'Please avoid throwing strings!';
+  throw "Please avoid throwing strings!"
 }
 
-const [error, data] = await someAsyncFunction().tuple();
+const [error, data] = await someAsyncFunction().tuple()
 
 if (error instanceof TupleItError) {
-  console.error(error.error); // Logs the original object that was thrown.
+  console.error(error.error) // Logs the original object that was thrown.
 }
 ```
 
@@ -101,18 +101,18 @@ if (error instanceof TupleItError) {
 In some cases, functions may return either values or promises for performance optimization. **TupleIt** handles this scenario seamlessly:
 
 ```typescript
-import { t } from 'tuple-it';
+import { t } from "tuple-it"
 
 function someFunction() {
   if (Math.random() > 0.5) {
-    return 'Hello, World!';
+    return "Hello, World!"
   } else {
-    return Promise.resolve('Hello, World!');
+    return Promise.resolve("Hello, World!")
   }
 }
 
 // Works the same way!
-const [error, data] = await t(someFunction());
+const [error, data] = await t(someFunction())
 ```
 
 ## License
