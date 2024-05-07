@@ -15,7 +15,7 @@
 </h1>
 
 <h3 align="center">
-  A simple <code>async</code>/<code>await</code> to <code>[error, data]</code> catcher.
+  A simple <code>Promise</code> to <code>[error, data]</code> catcher.
 </h3>
 
 <br />
