@@ -20,10 +20,10 @@
 <br />
 
 - [Introduction](#introduction)
-- [How to use](#how-to-use)
-- [Avoiding polluting the global scope](#avoiding-polluting-the-global-scope)
-- [The `TupleItError` class](#the-tupleiterror-class)
-- [Promisable objects](#promisable-objects)
+- [How to Use](#how-to-use)
+- [Avoiding Global Scope Pollution](#avoiding-global-scope-pollution)
+- [The `TupleItError` Class](#the-tupleiterror-class)
+- [Promisable Objects](#promisable-objects)
 - [License](#license)
 - [Credits](#credits)
 
@@ -31,50 +31,44 @@
 
 ## Introduction
 
-**TupleIt** is a simple helper to make it easier to handle `async`/`await` errors.
-
-It wraps the `await` statement into a `[error, data]` tuple, allowing you to easily check if the promise was rejected or resolved without nesting `try`/`catch` blocks.
-
-It also easies the burden of checking for promise rejections, which are one of the **most common mistakes in JavaScript**.
+**TupleIt** is a handy utility designed to simplify error handling with `async`/`await` operations in JavaScript. It wraps the `await` statement in a `[error, data]` tuple, allowing you to easily discern whether a promise was rejected or resolved without resorting to nested `try`/`catch` blocks. This not only enhances code readability but also mitigates one of the most common mistakes in JavaScript development - mishandling promise rejections.
 
 <br />
 
-## How to use
+## How to Use
 
 > [!CAUTION]
-> Please do not extend the `Promise` prototype in a library, it's a bad practice.
+> Extending the `Promise` prototype in a library is considered a horrible practice.
 
-<br />
+**TupleIt** provides an import `tupleit/register` to extend the `Promise` prototype:
 
-**TupleIt** provides a `tupleit/register` import you can use in your main file to extend the `Promise` prototype.
-
-```ts
+```typescript
 import 'tupleit/register';
 ```
 
-Then you can use the `.tuple()` method on any `Promise` object.
+Now, you can use the `.tuple()` method on any `Promise` object:
 
-```ts
-function work(promise: Promise<WorkData>) {
+```typescript
+async function work(promise: Promise<WorkData>) {
   const [error, data] = await promise.tuple();
 
   if (error) {
-    console.log('fail!');
+    console.log('Operation failed!');
     return false;
   }
 
-  console.log('success!');
+  console.log('Operation succeeded!');
   return true;
 }
 ```
 
 <br />
 
-## Avoiding polluting the global scope
+## Avoiding Global Scope Pollution
 
-If you are developing a library, you shouldn't pollute the global scope. Instead, you can import the `t` _(alias to `tuple`)_ function directly.
+If you're developing a library, it's advised not to pollute the global scope. Instead, you can import the `t` function directly (an alias for `tuple`):
 
-```ts
+```typescript
 import { t } from 'tupleit';
 
 const [error, data] = await t(someAsyncFunction());
@@ -82,31 +76,31 @@ const [error, data] = await t(someAsyncFunction());
 
 <br />
 
-## The `TupleItError` class
+## The `TupleItError` Class
 
-Sometimes promises might reject a non error object, this is a super bad practice but it happens. **TupleIt** will wrap any non `Error` object into a `TupleItError` object if its not an instance of `Error`.
+Occasionally, promises might reject with non-error objects, which is a poor practice but still happens. **TupleIt** will wrap any non-`Error` object into a `TupleItError` object if it's not an instance of `Error`:
 
-```ts
+```typescript
 import { TupleItError } from 'tupleit';
 
 async function someAsyncFunction() {
-  throw 'Please never throw strings!';
+  throw 'Please avoid throwing strings!';
 }
 
 const [error, data] = await someAsyncFunction().tuple();
 
 if (error instanceof TupleItError) {
-  console.error(error.error); // The original object that was thrown.
+  console.error(error.error); // Logs the original object that was thrown.
 }
 ```
 
 <br />
 
-## Promisable objects
+## Promisable Objects
 
-Sometimes functions returns values or promises to improve performance. **TupleIt** will handle this case as well.
+In some cases, functions may return either values or promises for performance optimization. **TupleIt** handles this scenario seamlessly:
 
-```ts
+```typescript
 import { t } from 'tupleit';
 
 function someFunction() {
@@ -117,19 +111,18 @@ function someFunction() {
   }
 }
 
-// Works in the same way!
+// Works the same way!
 const [error, data] = await t(someFunction());
 ```
 
-<br />
-
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 <br />
 
 ## Credits
 
-This project is heavily inspired from [`await-to-js`](https://www.npmjs.com/package/await-to-js).
+**TupleIt** draws heavy inspiration from [`await-to-js`](https://www.npmjs.com/package/await-to-js).
 
 <br />
