@@ -1,8 +1,8 @@
-function __tupleResolve(value) {
+function tupleResolve(value) {
   return [null, value]
 }
 
-function __tupleReject(error) {
+function tupleReject(error) {
   if (!(error instanceof Error)) {
     return [new TupleItError(error)]
   }
@@ -14,6 +14,6 @@ Object.defineProperty(Promise.prototype, 'tuple', {
   // Prevents the property from being listed by Object.getOwnPropertyNames
   enumerable: false,
   value() {
-    return this.then(__tupleResolve, __tupleReject)
+    return this.then(tupleResolve, tupleReject)
   }
 })
