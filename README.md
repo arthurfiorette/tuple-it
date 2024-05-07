@@ -1,10 +1,10 @@
 <div align="center">
-  <a title="MIT license" target="_blank" href="https://github.com/arthurfiorette/tupleit/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/arthurfiorette/tupleit"></a>
-  <a title="Codecov" target="_blank" href="https://app.codecov.io/gh/arthurfiorette/tupleit"><img alt="Codecov" src="https://img.shields.io/codecov/c/github/arthurfiorette/tupleit?token=ML0KGCU0VM"></a>
-  <a title="NPM Package" target="_blank" href="https://www.npmjs.com/package/tupleit"><img alt="Downloads" src="https://img.shields.io/npm/dw/tupleit?style=flat"></a>
-  <a title="Install size" target="_blank" href="https://packagephobia.com/result?p=tupleit"><img alt="Bundlephobia" src="https://packagephobia.com/badge?p=tupleit"></a>
-  <a title="Last Commit" target="_blank" href="https://github.com/arthurfiorette/tupleit/commits/master"><img alt="Last commit" src="https://img.shields.io/github/last-commit/arthurfiorette/tupleit"></a>
-  <a href="https://github.com/arthurfiorette/tupleit/stargazers"><img src="https://img.shields.io/github/stars/arthurfiorette/tupleit?logo=github&label=Stars" alt="Stars"></a>
+  <a title="MIT license" target="_blank" href="https://github.com/arthurfiorette/tuple-it/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/arthurfiorette/tuple-it"></a>
+  <a title="Codecov" target="_blank" href="https://app.codecov.io/gh/arthurfiorette/tuple-it"><img alt="Codecov" src="https://img.shields.io/codecov/c/github/arthurfiorette/tuple-it?token=ML0KGCU0VM"></a>
+  <a title="NPM Package" target="_blank" href="https://www.npmjs.com/package/tuple-it"><img alt="Downloads" src="https://img.shields.io/npm/dw/tuple-it?style=flat"></a>
+  <a title="Install size" target="_blank" href="https://packagephobia.com/result?p=tuple-it"><img alt="Bundlephobia" src="https://packagephobia.com/badge?p=tuple-it"></a>
+  <a title="Last Commit" target="_blank" href="https://github.com/arthurfiorette/tuple-it/commits/master"><img alt="Last commit" src="https://img.shields.io/github/last-commit/arthurfiorette/tuple-it"></a>
+  <a href="https://github.com/arthurfiorette/tuple-it/stargazers"><img src="https://img.shields.io/github/stars/arthurfiorette/tuple-it?logo=github&label=Stars" alt="Stars"></a>
 </div>
 
 <br />
@@ -40,10 +40,10 @@
 > [!CAUTION]
 > Extending the `Promise` prototype in a library is considered a horrible practice.
 
-**TupleIt** provides an import `tupleit/register` to extend the `Promise` prototype:
+**TupleIt** provides an import `tuple-it/register` to extend the `Promise` prototype:
 
 ```typescript
-import 'tupleit/register';
+import 'tuple-it/register';
 ```
 
 Now, you can use the `.tuple()` method on any `Promise` object:
@@ -69,7 +69,7 @@ async function work(promise: Promise<WorkData>) {
 If you're developing a library, it's advised not to pollute the global scope. Instead, you can import the `t` function directly (an alias for `tuple`):
 
 ```typescript
-import { t } from 'tupleit';
+import { t } from 'tuple-it';
 
 const [error, data] = await t(someAsyncFunction());
 ```
@@ -81,7 +81,7 @@ const [error, data] = await t(someAsyncFunction());
 Occasionally, promises might reject with non-error objects, which is a poor practice but still happens. **TupleIt** will wrap any non-`Error` object into a `TupleItError` object if it's not an instance of `Error`:
 
 ```typescript
-import { TupleItError } from 'tupleit';
+import { TupleItError } from 'tuple-it';
 
 async function someAsyncFunction() {
   throw 'Please avoid throwing strings!';
@@ -101,7 +101,7 @@ if (error instanceof TupleItError) {
 In some cases, functions may return either values or promises for performance optimization. **TupleIt** handles this scenario seamlessly:
 
 ```typescript
-import { t } from 'tupleit';
+import { t } from 'tuple-it';
 
 function someFunction() {
   if (Math.random() > 0.5) {
