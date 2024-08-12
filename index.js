@@ -1,28 +1,11 @@
-/** @param {unknown} maybePromise */
-async function tuple(maybePromise) {
-  try {
-    // await because then is not present on non-Promise objects
-    return [null, await maybePromise]
-  } catch (error) {
-    // Wrapping into TupleItError avoids the need to check
-    // `if (error !== undefined)` in favor of a simpler `if (error)`
-    if (error instanceof Error) {
-      return [error]
-    }
+const { err, ok } = require('./lib/result.js');
+const { t, tb, tuple, tupleBound } = require('./lib/tuple.js');
+const { TupleItError } = require('./lib/error.js');
 
-    return [new TupleItError(error)]
-  }
-}
-
-class TupleItError extends Error {
-  error
-
-  constructor(error) {
-    super('Promise rejected with a non instance of Error')
-    this.error = error
-  }
-}
-
-exports.tuple = tuple
-exports.t = tuple
-exports.TupleItError = TupleItError
+module.exports.err = err;
+module.exports.ok = ok;
+module.exports.t = t;
+module.exports.tb = tb;
+module.exports.tuple = tuple;
+module.exports.tupleBound = tupleBound;
+module.exports.TupleItError = TupleItError;

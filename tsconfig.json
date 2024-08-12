@@ -42,6 +42,6 @@
     "skipLibCheck": false,
     "preserveWatchOutput": true
   },
-  "include": ["**/*.js", "**/*.d.ts"],
+  "include": ["**/*.js", "**/*.d.ts", "**/*.ts"],
   "exclude": ["node_modules", "dist", "coverage"]
 }

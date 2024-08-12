@@ -2,7 +2,7 @@ const { describe, it } = require('node:test')
 const assert = require('node:assert')
 const { tuple, t, TupleItError } = require('../index')
 
-describe('Exported functions', async () => {
+describe('Function tests', async () => {
   it('should return a value when resolved', async () => {
     const testInput = 41
     const promise = Promise.resolve(testInput)

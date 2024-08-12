@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "author": "Arthur Fiorette <me@arthur.place>",
-  "sideEffects": ["register.js"],
+  "sideEffects": ["register.js", "lib/register.js"],
   "type": "commonjs",
   "main": "index.js",
   "types": "index.d.ts",
