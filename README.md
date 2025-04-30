@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This package was deprecated in favor of [`npm install try`](https://github.com/arthurfiorette/try)
+
 <div align="center">
   <a title="MIT license" target="_blank" href="https://github.com/arthurfiorette/tuple-it/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/arthurfiorette/tuple-it"></a>
   <a title="Bundle size" target="_blank" href="https://bundlephobia.com/package/tuple-it"><img alt="Bundlephobia" src="https://img.shields.io/bundlephobia/minzip/tuple-it/latest"></a>
